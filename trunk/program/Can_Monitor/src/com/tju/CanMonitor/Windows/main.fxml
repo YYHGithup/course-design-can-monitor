@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" fx:id="mainWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="668.0" prefWidth="1316.0" xmlns:fx="http://javafx.com/fxml" fx:controller="com.tju.CanMonitor.Windows.MainWindow">
+  <children>
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="490.0" layoutX="726.0" layoutY="42.0" opacity="0.16" stroke="BLACK" strokeType="INSIDE" width="567.0" />
+    <MenuBar layoutX="1.0" layoutY="0.0" minHeight="20.0" prefHeight="30.0" prefWidth="1365.0">
+      <menus>
+        <Menu mnemonicParsing="false" text="文件">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#addMessage" text="Add Message" />
+            <MenuItem mnemonicParsing="false" onAction="#closeWindow" text="关闭" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="编辑">
+          <items>
+            <MenuItem mnemonicParsing="false" text="删除" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="帮助">
+          <items>
+            <MenuItem mnemonicParsing="false" text="关于" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane layoutX="-1.0" layoutY="34.0" minWidth="216.0" prefHeight="129.0" prefWidth="216.0">
+      <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="135.00009999999747" layoutX="2.0" layoutY="0.0" opacity="0.3" stroke="BLACK" strokeType="INSIDE" width="216.0" />
+        <Label layoutX="9.0" layoutY="20.0" text="SelectPort" />
+        <Label layoutX="134.0" layoutY="20.0" prefWidth="62.0" text="Baud Rate" />
+        <MenuButton id="mainSelectComMenuButton" fx:id="mainSelectCom" layoutX="9.0" layoutY="48.0" mnemonicParsing="false" prefWidth="92.0" text="COM3">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#changePort" text="COM1" />
+            <MenuItem mnemonicParsing="false" onAction="#changePort" text="COM2" />
+            <MenuItem mnemonicParsing="false" onAction="#changePort" text="COM3" />
+            <MenuItem mnemonicParsing="false" onAction="#changePort" text="COM4" />
+            <MenuItem mnemonicParsing="false" onAction="#changePort" text="COM5" />
+            <MenuItem mnemonicParsing="false" onAction="#changePort" text="COM6" />
+            <MenuItem mnemonicParsing="false" onAction="#changePort" text="COM7" />
+            <MenuItem mnemonicParsing="false" onAction="#changePort" text="COM8" />
+            <MenuItem mnemonicParsing="false" onAction="#changePort" text="COM9" />
+          </items>
+        </MenuButton>
+        <MenuButton id="mainBaudRateMenuButton" fx:id="mainBaudRate" layoutX="118.0" layoutY="48.0" mnemonicParsing="false" prefWidth="84.0" text="19200">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#changeBaudRate" text="1200" />
+            <MenuItem mnemonicParsing="false" onAction="#changeBaudRate" text="2400" />
+            <MenuItem mnemonicParsing="false" onAction="#changeBaudRate" text="4800" />
+            <MenuItem mnemonicParsing="false" onAction="#changeBaudRate" text="9600" />
+            <MenuItem mnemonicParsing="false" onAction="#changeBaudRate" text="14400" />
+            <MenuItem mnemonicParsing="false" onAction="#changeBaudRate" text="19200" />
+            <MenuItem mnemonicParsing="false" onAction="#changeBaudRate" text="28800" />
+            <MenuItem mnemonicParsing="false" onAction="#changeBaudRate" text="38400" />
+          </items>
+        </MenuButton>
+        <Button fx:id="mainClosePort" layoutX="9.0" layoutY="100.0" mnemonicParsing="false" text="ClosePort" />
+        <Button fx:id="mainSet" layoutX="128.0" layoutY="100.0" mnemonicParsing="false" prefWidth="62.0" text="Set" />
+        <Label layoutX="9.0" layoutY="-2.0" prefWidth="132.0" text="Com Port Parameter" />
+        <Line endX="1256.0" endY="2.0" layoutX="110.0" layoutY="-1.0" startX="-107.0" startY="0.0" />
+      </children>
+    </AnchorPane>
+    <AnchorPane layoutX="233.0" layoutY="34.0" minWidth="476.0" prefHeight="129.0" prefWidth="476.0">
+      <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="136.0" layoutX="-1.0" layoutY="1.0" opacity="0.28" smooth="true" stroke="BLACK" strokeType="INSIDE" visible="true" width="486.0" />
+        <Label layoutX="2.0" layoutY="5.0" prefWidth="62.0" text="Setting" />
+        <Label layoutX="2.0" layoutY="21.0" prefWidth="187.0" text="Set Can into Reset Mode:" />
+        <Label layoutX="2.0" layoutY="42.0" text="Set Can into Operationalt Mode:" />
+        <Label layoutX="2.0" layoutY="65.0" prefWidth="187.0" text="Message Send On/Off Mode:" />
+        <Label layoutX="2.0" layoutY="88.0" prefWidth="187.0" text="Setup bit rate:" />
+        <Label layoutX="2.0" layoutY="109.0" prefWidth="187.0" text="Set TimeStamp On/Off:" />
+        <Button fx:id="mainResetMode" layoutX="199.0" layoutY="15.0" mnemonicParsing="false" onMouseClicked="#resetMode" prefWidth="103.0" text="Reset Mode" />
+        <Button fx:id="mainNormalMode" layoutX="278.0" layoutY="40.0" mnemonicParsing="false" onMouseClicked="#setNormalMode" prefWidth="103.0" text="Normal Mode" />
+        <Button fx:id="mainSelfTest" layoutX="199.0" layoutY="40.0" mnemonicParsing="false" onMouseClicked="#setSelfTest" prefWidth="73.0" text="Self Test" />
+        <Button fx:id="mainBlokeOn" layoutX="199.0" layoutY="61.0" mnemonicParsing="false" onMouseClicked="#blockOn" text="Bloke On" />
+        <Button fx:id="mainBlokeOff" layoutX="278.0" layoutY="62.0" mnemonicParsing="false" onMouseClicked="#blockOff" text="Bloke Off" />
+        <Button fx:id="mainListenOnly" layoutX="384.0" layoutY="40.0" mnemonicParsing="false" onMouseClicked="#setListenOnly" prefWidth="92.0" text="Listen Only" />
+        <Button id="mainSetupBitRateOk" fx:id="mainListenOnlyOk" layoutX="316.0" layoutY="84.0" mnemonicParsing="false" onMouseClicked="#setBitRate" prefWidth="72.9998779296875" text="OK" />
+        <Button fx:id="mainTimestampOn" layoutX="199.0" layoutY="106.0" mnemonicParsing="false" onMouseClicked="#timeStampOn" text="Timestamp On" />
+        <Button fx:id="mainTimestampOff" layoutX="338.0" layoutY="106.0" mnemonicParsing="false" onMouseClicked="#timeStampOff" text="Timestamp Off" />
+        <MenuButton fx:id="mainSetupBitRate" layoutX="199.0" layoutY="83.0" mnemonicParsing="false" prefWidth="73.0" text="6">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#bitRateChoose" text="1" />
+            <MenuItem mnemonicParsing="false" onAction="#bitRateChoose" text="2" />
+            <MenuItem mnemonicParsing="false" onAction="#bitRateChoose" text="3" />
+            <MenuItem mnemonicParsing="false" onAction="#bitRateChoose" text="4" />
+            <MenuItem mnemonicParsing="false" onAction="#bitRateChoose" text="5" />
+            <MenuItem mnemonicParsing="false" onAction="#bitRateChoose" text="6" />
+            <MenuItem mnemonicParsing="false" onAction="#bitRateChoose" text="7" />
+            <MenuItem mnemonicParsing="false" onAction="#bitRateChoose" text="8" />
+          </items>
+        </MenuButton>
+      </children>
+    </AnchorPane>
+    <AnchorPane layoutX="7.0" layoutY="178.0" prefHeight="229.0" prefWidth="201.0">
+      <children>
+        <TreeView id="mainTreeView" prefHeight="229.0" prefWidth="201.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+        <ScrollBar orientation="VERTICAL" prefHeight="229.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="187.0" AnchorPane.topAnchor="0.0" />
+      </children>
+    </AnchorPane>
+    <AnchorPane layoutX="235.0" layoutY="177.0" prefHeight="332.0" prefWidth="486.0">
+      <children>
+        <AnchorPane layoutX="0.0" layoutY="0.0" prefHeight="129.0" prefWidth="486.0">
+          <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="129.99998474121094" layoutX="0.0" layoutY="0.0" opacity="0.2" stroke="BLACK" strokeType="INSIDE" width="486.0" />
+            <Label layoutX="10.0" layoutY="10.0" prefWidth="38.0" text="Send" />
+            <Label layoutX="26.0" layoutY="29.0" text="Send Data and Command:" />
+            <TextField id="mainDataTextField" fx:id="mainSendSendDataTF" layoutX="183.0" layoutY="27.0" prefWidth="200.0" />
+            <Button id="mainDataSend" fx:id="mainSendSendData" layoutX="411.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#sendDataAndComand" text="Send" />
+            <Label layoutX="34.0" layoutY="54.0" prefWidth="306.0" text="(All the data set and recieved should in hexadesimal)" textFill="#ff3d00" />
+            <Label layoutX="26.0" layoutY="77.0" prefWidth="157.0" text="Send  Command from File:" />
+            <Label layoutX="187.0" layoutY="77.0" text="file:" />
+            <TextField id="mainFileTextField" fx:id="mainSendOpenTF" layoutX="211.0" layoutY="74.0" prefWidth="200.0" />
+            <Label layoutX="26.0" layoutY="99.0" prefWidth="124.0" text="Peried(milisecond):" />
+            <TextField id="mainPeriodTextField" fx:id="mainSendSendPeriedTF" layoutX="140.0" layoutY="97.0" prefWidth="200.0" />
+            <Button id="mainFileOpen" fx:id="mainSendOpen" layoutX="419.0" layoutY="73.0" mnemonicParsing="false" onMouseClicked="#chooseFile" text="Open" />
+            <Button id="mainPeriedSend" fx:id="mainSendSendPeried" layoutX="360.0" layoutY="100.0" mnemonicParsing="false" onMouseClicked="#sendFromFile" text="Send" />
+          </children>
+        </AnchorPane>
+      </children>
+    </AnchorPane>
+    <AnchorPane layoutX="7.0" layoutY="422.0" minHeight="246.0" prefHeight="246.0" prefWidth="208.0">
+      <children>
+        <Text layoutX="14.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Information" />
+        <TextArea fx:id="informationArea" editable="false" layoutX="0.0" layoutY="26.0" prefHeight="193.0" prefWidth="201.0" promptText="" style="" text="" wrapText="true" />
+        <ScrollBar layoutX="188.0" layoutY="26.0" orientation="VERTICAL" prefHeight="193.0" />
+        <Button id="mainStepdriver" fx:id="mainCommandsStepdriver" layoutX="7.0" layoutY="219.0" mnemonicParsing="false" text="Stepdriver" />
+        <Button id="mainClear" fx:id="mainCommandsClear" layoutX="130.0" layoutY="219.0" mnemonicParsing="false" text="Clear" />
+      </children>
+    </AnchorPane>
+    <AnchorPane layoutX="223.0" layoutY="539.0" prefHeight="130.0" prefWidth="1086.0">
+      <children>
+        <TableView prefHeight="130.0" prefWidth="1086.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <columns>
+            <TableColumn prefWidth="75.0" text="" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="107.0" text="MessageID" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="128.0" text="MessageName" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="132.0" text="Data" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="138.0" text="RecievedString" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="129.0" text="MesageLength" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="137.0" text="TransMode" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="111.0" text="TimeStamp" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="176.0" text="Time" />
+          </columns>
+        </TableView>
+      </children>
+    </AnchorPane>
+    <AnchorPane layoutX="726.0" layoutY="39.0" prefHeight="493.0" prefWidth="630.0">
+      <children>
+        <Text layoutX="187.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BTR0" />
+        <TextField id="mainBTR0TextField" fx:id="mainCommandsBTR0" layoutX="232.0" layoutY="98.0" prefWidth="52.0" />
+        <Text layoutX="315.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BTR1" />
+        <TextField id="mainBTR1TextField" fx:id="mainCommandsBTR1" layoutX="358.0" layoutY="98.0" prefWidth="52.0" />
+        <Text layoutX="190.0" layoutY="148.0" scaleX="0.9428645505009939" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ACR0" />
+        <TextField id="mainACR0TextField" fx:id="mainCommandsACR0" layoutX="235.0" layoutY="131.0" prefWidth="49.0" />
+        <Text layoutX="315.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ACR1" />
+        <TextField id="mainACR1TextField" fx:id="mainCommandsACR1" layoutX="358.0" layoutY="132.0" prefWidth="52.0" />
+        <Button id="mainBTROK" fx:id="mainCommandsBTROK" layoutX="431.0" layoutY="98.0" mnemonicParsing="false" onMouseClicked="#setBTR" text="OK" />
+        <Text layoutX="191.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ACR2" />
+        <TextField id="mainACR2TextField" fx:id="mainCommandsACR2" layoutX="235.0" layoutY="158.0" prefWidth="49.0" />
+        <Text layoutX="315.0" layoutY="173.0" scaleX="1.0" scaleY="0.9999934384212859" strokeType="OUTSIDE" strokeWidth="0.0" text="ACR3" />
+        <TextField id="mainACR3TextField" fx:id="mainCommandsACR3" layoutX="361.0" layoutY="157.0" prefWidth="49.0" />
+        <Button id="mainACROK" fx:id="mainCommandsACROK" layoutX="432.0" layoutY="158.0" mnemonicParsing="false" onMouseClicked="#setACR" text="OK" />
+        <Text layoutX="14.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Setup AMRn Register:" />
+        <Text layoutX="191.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AMR0" />
+        <TextField id="mainAMR0TextField" fx:id="mainCommandsAMR0" layoutX="236.0" layoutY="203.0" prefWidth="49.0" />
+        <Text layoutX="318.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AMR1" />
+        <TextField id="mainAMR1TextField" fx:id="mainCommandsAMR1" layoutX="365.0" layoutY="203.0" prefWidth="52.0" />
+        <TextField id="mainAMR2TextField" fx:id="mainCommandsAMR2" layoutX="236.0" layoutY="229.0" prefWidth="49.0" />
+        <Text layoutX="318.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AMR3" />
+        <TextField id="mainAMR3TextField" fx:id="mainCommandsAMR3" layoutX="365.0" layoutY="232.0" prefWidth="52.0" />
+        <Button id="mainAMROK" fx:id="mainCommandsAMROK" layoutX="431.0" layoutY="231.0" mnemonicParsing="false" onMouseClicked="#setAMR" text="OK" />
+        <Text layoutX="191.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AMR2" />
+        <Text layoutX="14.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Write Regiter" />
+        <Text layoutX="13.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Read Register" />
+        <Text fill="RED" layoutX="7.0" layoutY="316.0" scaleX="0.9795510796444612" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Read Regiter will clear the register contant,use it carefully)" />
+        <Text layoutX="13.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Flush the CAN-Controller and bring it to Reset Mode:" />
+        <Text layoutX="15.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Controller's buffers and Variables are all innitiallized)">
+          <fill>
+            <Color blue="0.000" green="0.000" red="0.800" fx:id="x1" />
+          </fill>
+        </Text>
+        <Text layoutX="13.0" layoutY="392.0" scaleX="0.9956352886881559" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Read error flags SB,ALC,ECR，RIERR，TXERR Registers" />
+        <TextField id="mainWriteRegisterTextField" fx:id="mainCommandsWriteRegister" layoutX="101.0" layoutY="252.0" prefWidth="52.0" />
+        <Text layoutX="193.0" layoutY="267.0" scaleX="1.1281941927000037" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="with Data" />
+        <TextField id="mainWithDataTextField" fx:id="mainCommandsWithData" layoutX="267.0" layoutY="252.0" prefWidth="52.0" />
+        <TextField id="mainReadRegisterTextField" fx:id="mainCommandsReadRegister" layoutX="107.0" layoutY="282.0" prefWidth="49.0" />
+        <Button id="mainReadRegisterOK" fx:id="mainCommandsReadRegisterOK" layoutX="180.0" layoutY="282.0" mnemonicParsing="false" onMouseClicked="#getSJARegisterValue" text="OK" />
+        <Text layoutX="284.0" layoutY="296.0" scaleX="1.0" scaleY="0.9999919902601564" strokeType="OUTSIDE" strokeWidth="0.0" text="Register Data is" />
+        <TextField id="mainRegisterDataTextField" fx:id="mainCommandsRegisterData" layoutX="396.0" layoutY="277.0" prefWidth="110.0" />
+        <Button id="mainFlushOK" fx:id="mainCommandsFlushOK" layoutX="432.0" layoutY="324.0" mnemonicParsing="false" onMouseClicked="#flush" text="OK" />
+        <Button id="mainReadErrorOK" fx:id="mainCommandsReadOK" layoutX="432.0" layoutY="373.0" mnemonicParsing="false" onMouseClicked="#getErrorFlag" text="OK" />
+        <Text layoutX="132.0" layoutY="420.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SR" />
+        <Text layoutX="203.0" layoutY="420.0" scaleX="1.0" scaleY="0.9999919902601564" strokeType="OUTSIDE" strokeWidth="0.0" text="ALC" />
+        <Text layoutX="15.0" layoutY="420.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ERR-Flags" />
+        <Text layoutX="285.0" layoutY="420.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ECR" />
+        <TextField id="ERRTextField" fx:id="mainCommandsERRFlags" layoutX="77.0" layoutY="405.0" prefWidth="44.71875" />
+        <TextField id="SBTextField" fx:id="mainCommandsSB" layoutX="157.0" layoutY="405.0" prefWidth="44.9998779296875" />
+        <TextField id="ALCTextField" fx:id="mainCommandsALC" layoutX="232.0" layoutY="405.0" prefWidth="38.0" />
+        <TextField id="ECRTextField" fx:id="mainCommandsECR" layoutX="320.0" layoutY="405.0" prefWidth="52.0" />
+        <Text layoutX="14.0" layoutY="451.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RIERR" />
+        <Text layoutX="131.0" layoutY="451.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TXERRR" />
+        <TextField id="RIERRTextField" fx:id="mainCommandsRiERR" layoutX="55.0" layoutY="435.0" prefWidth="44.71875" />
+        <TextField id="TXERRRTextField" fx:id="mainCommandsTXERRR" layoutX="185.0" layoutY="435.0" prefWidth="52.0" />
+        <Text fill="$x1" layoutX="16.0" layoutY="469.0" scaleX="1.0073730183764364" scaleY="0.9999919902601564" strokeType="OUTSIDE" strokeWidth="0.0" text="(All the Data set and  recieved should in hexacidecimal)" />
+        <Button id="mainACROK" layoutX="431.0" layoutY="253.0" mnemonicParsing="false" onMouseClicked="#setSJARegister" text="OK" />
+      </children>
+    </AnchorPane>
+    <Label layoutX="737.0" layoutY="49.0" text="Commands" />
+    <Text layoutX="736.0" layoutY="88.0" scaleX="1.0" scaleY="1.0498526207868768" strokeType="OUTSIDE" strokeWidth="0.0" text="Get Version from Device:" />
+    <Text layoutX="736.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Get Serial from Device:" />
+    <Text layoutX="738.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Setup BTR0/BTR1 Register:" />
+    <Text layoutX="736.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Setup ACRn Register:" />
+    <Button id="mainGetVersion" fx:id="mainCommandsGetVersion" layoutX="906.0" layoutY="68.0" mnemonicParsing="false" onMouseClicked="#getVersion" prefWidth="92.0" text="Get Version" />
+    <TextField id="mainGetVersionTextField" fx:id="mainCommandsGetVersionTF" layoutX="1016.0" layoutY="71.0" prefWidth="200.0" />
+    <Button id="mainReadSerial" fx:id="mainCommandsReadSerial" layoutX="910.0" layoutY="110.0" mnemonicParsing="false" onMouseClicked="#getSerial" prefWidth="84.0" text="Read Serial" />
+    <TextField id="mainReadSerialTextField" fx:id="mainCommandsReadSerialTF" layoutX="1016.0" layoutY="105.0" prefWidth="200.0" />
+  </children>
+</AnchorPane>
